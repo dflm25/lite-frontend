@@ -1,23 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
-import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
+// Page components
 import LoginPage from '../pages/login';
+import InventoryPage from '../pages/inventory';
 import HomePage from '../pages/home';
+import NoMatch from '../pages/noMatch';
+import PrivateRoutes from './private';
 
-import { AuthContext } from '../context/authContext';
-
-import 'bootstrap/scss/bootstrap.scss';
+// Styles
 import '../assets/sass/custom.scss';
 
 export default function App() {
-  const token = React.useContext(AuthContext);
-  console.log('token', token);
-
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route element={<PrivateRoutes />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/inventory" element={<InventoryPage />} />
+      </Route>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<NoMatch />} />
     </Routes>
   );
 }

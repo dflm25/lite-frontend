@@ -1,0 +1,15 @@
+// Variables
+@import "variables";
+// Bootstrap
+@import 'bootstrap/scss/bootstrap.scss';
+
+// themes
+@import './style';
+@import './components';
+
+
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 500;
+}
