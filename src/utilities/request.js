@@ -1,4 +1,3 @@
-import { getStorage } from './storage';
 import config from '../config';
 
 function parseJSON(response) {
@@ -32,7 +31,7 @@ async function handleError(err) {
 export default async function request(url, receivedOptions) {
   const options = { ...receivedOptions };
   let baseURL = config.API_HOST;
-  let token = await getStorage('token');
+  let token = '';
 
   // In case of use external URL
   if (options.externalUrl) {

@@ -1,0 +1,6 @@
+export const PAGINATE = 'INVENTORIES/PAGINATE';
+export const CREATE = 'INVENTORIES/CREATE';
+export const EDIT = 'INVENTORIES/EDIT';
+export const UPDATE = 'INVENTORIES/UPDATE';
+export const DESTROY = 'INVENTORIES/DESTROY';
+export const GET_PDF = 'INVENTORIES/GET_PDF';

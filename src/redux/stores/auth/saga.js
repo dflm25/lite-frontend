@@ -5,7 +5,7 @@ import { setResponse, setUser } from '../../stores/app/actions';
 
 // Utils
 import request from '../../../utilities/request';
-// import { setStorage } from '../../../utilities/storage';
+import { setStorage } from '../../../utilities/storage';
 
 // Constants
 import { AUTH_LOGIN } from '../../stores/auth/constants';
@@ -16,7 +16,7 @@ function* login(action) {
 
   try {
     const response = yield call(request, 'auth/login', requestOptions);
-    // yield call(setStorage, 'user', JSON.stringify(response.user));
+    yield call(setStorage, 'session', JSON.stringify(response));
     yield put(setUser(response));
     yield put(setResponse('success', false, false, response, cb));
   } catch (error) {

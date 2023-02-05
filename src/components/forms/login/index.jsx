@@ -1,20 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from './scheme';
 
-export default function LoginForm() {
+export default function LoginForm({ submit }) {
   const {
     handleSubmit,
     formState: { errors },
     register
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: { email: 'dflm25@gmail.com', password: '12345678' }
+    defaultValues: { email: 'dflm25@gmail.com', password: '123456' }
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => submit(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -38,3 +39,7 @@ export default function LoginForm() {
     </form>
   );
 }
+
+LoginForm.propTypes = {
+  submit: PropTypes.func.isRequired
+};

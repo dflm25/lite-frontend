@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 // import * as actions from '../store/actions';
 
 class Sidebar extends Component {
@@ -22,6 +23,9 @@ class Sidebar extends Component {
             <li className="menu-header">Dashboard</li>
             <li className="nav-item dropdown">
               <Link to={`/`}>Dashboard</Link>
+            </li>
+            <li className="nav-item dropdown">
+              <Link to={`/companies`}>Companies</Link>
             </li>
             <li className="nav-item dropdown">
               <Link to={`/inventory`}>Inventory</Link>
